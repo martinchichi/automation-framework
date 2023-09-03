@@ -19,6 +19,7 @@ public class Login_Steps {
     private WebDriver driver;
     String loginUrl = "https://www.webdriveruniversity.com/Login-Portal/index.html?";
 
+
     @Before("@login")
     public void setup() {
         WebDriverManager.chromedriver().setup();
@@ -26,7 +27,6 @@ public class Login_Steps {
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
-
     }
 
     @After("@login")
@@ -43,24 +43,24 @@ public class Login_Steps {
         driver.get(loginUrl);
     }
 
-    @When("I enter a username {string}")
+    @When("I enter a username {}")
     public void iEnterAUsername(String username) {
         driver.findElement(By.id("text")).sendKeys(username);
     }
 
     @When("I enter a username")
     public void iEnterAUsername() {
-        driver.findElement(By.id("text")).sendKeys(generateRandomString(9));
+        driver.findElement(By.id("text")).sendKeys(generateRandomString(5));
     }
 
     @And("I enter a password {}")
-    public void iEnterAPasswordWebdriver(String password) {
+    public void iEnterAPassword(String password) {
         driver.findElement(By.id("password")).sendKeys(password);
     }
 
     @And("I enter a password")
     public void iEnterAPassword() {
-        driver.findElement(By.id("password")).sendKeys(generateRandomString(9));
+        driver.findElement(By.id("password")).sendKeys(generateRandomString(5));
     }
 
     @And("I click on the login button")
@@ -70,18 +70,20 @@ public class Login_Steps {
 
     @Then("I should be presented with the successful login message")
     public void iShouldBePresentedWithTheSuccessfulLoginMessage() {
-//        Duration timeoutDuration = Duration.ofSeconds(5);
-//        WebDriverWait wait = new WebDriverWait(driver,timeoutDuration);
-//        wait.until(ExpectedConditions.alertIsPresent());
         String login_Message = driver.switchTo().alert().getText();
         Assert.assertEquals(login_Message, "validation succeeded");
-
     }
 
     @Then("I should be presented with the unsuccessful login message")
     public void iShouldBePresentedWithTheUnsuccessfulLoginMessage() {
         String login_Message = driver.switchTo().alert().getText();
         Assert.assertEquals(login_Message, "validation failed");
+    }
+
+    @Then("I should be presented with the following login validation message {}")
+    public void iShouldBePresentedWithTheFollowingLoginValidationMessage(String expectedMessage) {
+        String login_Message = driver.switchTo().alert().getText();
+        Assert.assertEquals(login_Message, expectedMessage);
     }
 
 

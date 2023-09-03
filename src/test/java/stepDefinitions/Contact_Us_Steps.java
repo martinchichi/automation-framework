@@ -16,6 +16,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
+import java.util.concurrent.TimeUnit;
+
 public class Contact_Us_Steps {
     private WebDriver driver;
     String contactUsUrl = "https://www.webdriveruniversity.com/Contact-Us/contactus.html";
@@ -23,22 +25,22 @@ public class Contact_Us_Steps {
     @Before("@contact-us")
     public void setup() {
         WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
         driver = new ChromeDriver(chromeOptions);
         driver.manage().window().maximize();
     }
+
     @After("@contact-us")
     public void tearDown() {
         driver.quit();
     }
 
-    public String generateRandomNumber(int length){
-
+    public String generateRandomNumber(int length) {
         return RandomStringUtils.randomNumeric(length);
     }
-    public String generateRandomString(int length){
+
+    public String generateRandomString(int length) {
         return RandomStringUtils.randomAlphabetic(length);
     }
 
@@ -52,9 +54,24 @@ public class Contact_Us_Steps {
         driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
     }
 
+    @When("I enter a specific first name {word}")
+    public void iEnterASpecificFirstName(String firstName) {
+        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(firstName);
+    }
+
     @And("I enter a unique last name")
     public void iEnterAUniqueLastName() {
         driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys("AutoLN" + generateRandomNumber(5));
+    }
+
+    @And("I enter a specific last name {word}")
+    public void iEnterASpecificLastName(String lastName) {
+        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys(lastName);
+    }
+
+    @And("I enter a specific email address {word}")
+    public void iEnterASpecificEmailAddress(String email) {
+        driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
     }
 
     @And("I enter a unique email address")
@@ -67,18 +84,6 @@ public class Contact_Us_Steps {
         driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys("Test" + generateRandomString(10));
     }
 
-    @When("I enter a specific first name {word}")
-    public void iEnterASpecificFirstName(String firstName) {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys(firstName);
-    }
-    @And("I enter a specific last name {word}")
-    public void iEnterASpecificLastName(String lastName) {
-        driver.findElement(By.xpath("//input[@name='last_name']")).sendKeys(lastName);
-    }
-    @And("I enter a specific email address {word}")
-    public void iEnterASpecificEmailAddress(String email) {
-        driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);
-    }
     @And("I enter a specific comment {string}")
     public void iEnterASpecificComment(String comment) {
         driver.findElement(By.xpath("//textarea[@name='message']")).sendKeys(comment);
@@ -86,15 +91,13 @@ public class Contact_Us_Steps {
 
     @And("I click on the submit button")
     public void iClickOnTheSubmitButton() {
-    driver.findElement(By.xpath("//input[@value='SUBMIT']")).click();
+        driver.findElement(By.xpath("//input[@value='SUBMIT']")).click();
     }
 
     @Then("I should be presented with a successful contact us submission message")
     public void iShouldBePresentedWithASuccessfulContactUsSubmissionMessage() {
         WebElement contactUs_Submission_Message = driver.findElement(By.xpath("//div[@id='contact_reply']/h1"));
         Assert.assertEquals(contactUs_Submission_Message.getText(), "Thank You for your Message!");
-
-
 
 
     }
