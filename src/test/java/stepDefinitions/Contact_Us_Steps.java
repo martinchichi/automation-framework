@@ -16,7 +16,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 
-import java.util.concurrent.TimeUnit;
 
 public class Contact_Us_Steps {
     private WebDriver driver;
