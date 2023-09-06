@@ -6,8 +6,8 @@ import org.testng.annotations.DataProvider;
 
 
 @CucumberOptions(features = {"classpath:features"}, glue = {"stepDefinitions"},
-        tags = "@login", monochrome = true, dryRun = false,
-        plugin = {"pretty", "html:target/login.htm", "json:target/login.json"})
+        tags = "@contact-us", monochrome = true, dryRun = false,
+        plugin = {"pretty", "html:target/cucumber.htm", "json:target/cucumber.json"})
 public class MainRunner extends AbstractTestNGCucumberTests {
 /* This method overrides the "scenarios" method and enables parallel test execution
  by using the "@DataProvider" annotation. It provides test data and returns the
