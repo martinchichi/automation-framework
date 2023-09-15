@@ -18,7 +18,6 @@ public class Contact_Us_Steps extends BasePageObject {
     private WebDriver driver = getDriver();
 
 
-
     @Given("I access the webdriver university contact us page")
     public void iAccessTheWebdriverUniversityContactUsPage() {
         navigateToUrl(contactUsUrl);
@@ -26,7 +25,8 @@ public class Contact_Us_Steps extends BasePageObject {
 
     @When("I enter a unique first name")
     public void iEnterAUniqueFirstName() {
-        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
+//        driver.findElement(By.xpath("//input[@name='first_name']")).sendKeys("AutoFN" + generateRandomNumber(5));
+        sendKeys(By.xpath("//input[@name='first_name']"), "AutoFN" + generateRandomNumber(5));
     }
 
     @When("I enter a specific first name {word}")
