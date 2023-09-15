@@ -13,7 +13,7 @@ public class MainRunner extends AbstractTestNGCucumberTests {
  by using the "@DataProvider" annotation. It provides test data and returns the
  data obtained from the superclass's "scenarios" method.*/
     @Override
-    @DataProvider(parallel = true)
+    @DataProvider(parallel = false)
     public Object[][] scenarios() {
         return super.scenarios();
     }
