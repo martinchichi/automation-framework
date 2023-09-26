@@ -45,12 +45,18 @@ public class DriverFactory {
 
     private static String getBrowserType() {
         String browserType = null;
+//        get the browser type from Jenkins
+        String browserTypeRemoteValue = System.getProperty("browserType");
 
         try {
-            Properties properties = new Properties();
-            FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
-            properties.load(file);
-            browserType = properties.getProperty("browser").toLowerCase().trim();
+            if (browserTypeRemoteValue == null || browserTypeRemoteValue.isEmpty()) {
+                Properties properties = new Properties();
+                FileInputStream file = new FileInputStream(System.getProperty("user.dir") + "/src/main/java/properties/config.properties");
+                properties.load(file);
+                browserType = properties.getProperty("browser").toLowerCase().trim();
+            } else {
+                browserType = browserTypeRemoteValue;
+            }
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
