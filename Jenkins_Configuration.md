@@ -114,7 +114,7 @@ Click on the build and a new option is shown 'Cucumber reports'
 
 Attaching Exception Images to Reports
 -------------------------------------
-Failed any step on pupose, let's say change any locator.
+Failed any step on purpose, let's say change any locator.
 After execute Jenkins, on the Cucumber reports, an attached image of the related error is shown.
 
 Targeting & Triggering Individual Test Suites

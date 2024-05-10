@@ -27,7 +27,7 @@ public class DriverFactory {
 
         switch (getBrowserType()) {
             case "chrome" -> {
-                WebDriverManager.chromedriver().setup();
+//                WebDriverManager.chromedriver().setup();
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
                 driver = new ChromeDriver(chromeOptions);

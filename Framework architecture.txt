@@ -1,0 +1,30 @@
+|__src
+| |__main
+| | |__java
+| | | |__driver
+| | | | |__DriverFactory.java
+| | | |__pageObjects
+| | | | |__BasePageObject.java
+| | | | |__ContactUs_PO.java
+| | | | |__Login_PO.java
+| | | |__properties
+| | | | |__config.properties
+| | | |__utils
+| | | | |__GlobalVariables.java
+| | |__resources
+| |__test
+| | |__java
+| | | |__runners
+| | | | |__MainRunner.java
+| | | | |__testng
+| | | | | |__testng.xml
+| | | |__stepDefinitions
+| | | | |__base
+| | | | | |__Hooks.java
+| | | | |__ContactUs_Steps.java
+| | | | |__Login_Steps.java
+| | |__resources
+| | | |__features
+| | | | |__Contact_Us.feature
+| | | | |__Login.feature
+|__pom.xml -----------------------------------------> POM File of this framework  
