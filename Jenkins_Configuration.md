@@ -1,48 +1,3 @@
-Jenkins - Download & Setup
---------------------------
-Java 11 or 17 is required to run Jenkins
-
-01- Download Jenkins from:
-https://www.jenkins.io/download/
-
-02- Select the following version:
-Generic Java package (.war)
-
-03- Navigate on CMD to the location where the file is listed and execute the .war file with the following command
-java -jar jenkins.war
-
-04- 'Jenkins is fully up and running' message should be displayed on the console
-
-05- Access to http://localhost:8080/ and paste the password provided on the console
-
-06- Select 'Install suggested plugins'
-
-07- Create a First Admin User
-
-
-Configuring Jenkins
---------------------
-01- Manage Jenkins > Global Tool Configuration > [Add JDK]
-On IntelliJ -> File > Project Structure > SDKs (Java Version)
-Name: ${name}
-Version: (e.g) C:\Users\your_user_here\.jdks\openjdk-18.0.1
-[Apply]
-
-02- Maven section
-[Add Maven]
-Name: ${name}
-MAVEN_HOME: (e.g.)C:\Program Files\Dev_Programs\apache-maven-3.9.4
-[Apply] > [Save]
-
-Job Creation
--------------
-01- Manage Jenkins > Manage Plugins
-Available tab > type 'maven integration' on the search box
-Check 'Maven Integration' > [Install]
-Go back to top page
-
-02- Click 'New Item' > Maven Project-> enter a name for the project > click [OK]
-
 Job Configuration - POM, Goals & Options
 ----------------------------------------
 01- Click on created project > Configuration > Build Environment tab
@@ -111,11 +66,6 @@ C:\Users\{user}\automation-framework\target > [Apply]
 In order to test it, you can click on 'Build Now'
 A link (with the build number) to the related build action is shown on the 'Build History' section. Click > Console output
 Click on the build and a new option is shown 'Cucumber reports'
-
-Attaching Exception Images to Reports
--------------------------------------
-Failed any step on purpose, let's say change any locator.
-After execute Jenkins, on the Cucumber reports, an attached image of the related error is shown.
 
 Targeting & Triggering Individual Test Suites
 ---------------------------------------------
