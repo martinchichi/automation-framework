@@ -31,18 +31,7 @@ pipeline {
                             fileIncludePattern: '**/cucumber*.json',
                             jsonReportDirectory: 'target'
                     }
-                }
-
-
-//         stage('Report') {
-//             steps {
-//                 cucumberReports(
-//                     buildStatus: 'NULL',
-//                     fileIncludePattern: '**/cucumber*.json',
-//                     jsonReportDirectory: 'target/cucumber-reports'
-//                 )
-//             }
-//         }
+        }
     }
 
     post {
