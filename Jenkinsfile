@@ -26,14 +26,22 @@ pipeline {
         }
 
         stage('Report') {
-            steps {
-                cucumberReports(
-                    buildStatus: 'NULL',
-                    fileIncludePattern: '**/cucumber*.json',
-                    jsonReportDirectory: 'target/cucumber-reports'
-                )
-            }
-        }
+                    steps {
+                        cucumber buildStatus: 'NULL',
+                                 fileIncludePattern: '**/cucumber*.json',
+                                 jsonReportDirectory: 'target/cucumber-reports'
+                    }
+                }
+
+//         stage('Report') {
+//             steps {
+//                 cucumberReports(
+//                     buildStatus: 'NULL',
+//                     fileIncludePattern: '**/cucumber*.json',
+//                     jsonReportDirectory: 'target/cucumber-reports'
+//                 )
+//             }
+//         }
 
     }
 
