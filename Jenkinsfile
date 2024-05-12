@@ -15,25 +15,33 @@ pipeline {
 
         stage('Build') {
             steps {
-                bat 'mvn clean'
+                bat 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn clean compile test'
+                bat 'test'
             }
         }
 
-        stage('Report') {
+stage('Report') {
             steps {
-                cucumberReports(
-                    buildStatus: 'NULL',
-                    fileIncludePattern: '**/cucumber*.json',
-                    jsonReportDirectory: 'target/cucumber-reports'
-                )
+                cucumber buildStatus: 'NULL',
+                         fileIncludePattern: '**/cucumber*.json',
+                         jsonReportDirectory: 'target/cucumber-reports'
             }
         }
+
+//         stage('Report') {
+//             steps {
+//                 cucumberReports(
+//                     buildStatus: 'NULL',
+//                     fileIncludePattern: '**/cucumber*.json',
+//                     jsonReportDirectory: 'target/cucumber-reports'
+//                 )
+//             }
+//         }
 
     }
 
