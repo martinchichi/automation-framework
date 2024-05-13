@@ -33,7 +33,7 @@ UI Automation framework from scratch with Selenium WebDriver 4, Java, Cucumber B
 
 ## Appendix
 
-This frameworks intention is to implement the core skills for automating software tests using Selenium WebDriver with Java, Cucumber BDD, TestNG and other tools:
+This framework intention is to implement the core skills for automating software tests using Selenium WebDriver with Java, Cucumber BDD, TestNG and other tools:
 
 - Learn Selenium WebDriver 4 and Java for test automation
 - Understand and apply Cucumber BDD for behavior-driven testing
