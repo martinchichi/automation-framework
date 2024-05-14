@@ -21,20 +21,20 @@ pipeline {
 
         stage('Test') {
             parallel {
-                stage('Test in Chrome') {
+//                 stage('Test in Chrome') {
+//                     steps {
+//                         script {
+//                             bat 'mvn test -Dbrowser=chrome'
+//                         }
+//                     }
+                }
+                stage('Test in Firefox') {
                     steps {
                         script {
-                            bat 'mvn test -Dbrowser=chrome'
+                            bat 'mvn test -Dbrowser=firefox'
                         }
                     }
                 }
-//                 stage('Test in Firefox') {
-//                     steps {
-//                         script {
-//                             bat 'mvn test -Dbrowser=firefox'
-//                         }
-//                     }
-//                 }
 
             }
         }
