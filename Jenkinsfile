@@ -27,7 +27,7 @@ pipeline {
 //                             bat 'mvn test -Dbrowser=chrome'
 //                         }
 //                     }
-                }
+//                 }
                 stage('Test in Firefox') {
                     steps {
                         script {
