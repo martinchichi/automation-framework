@@ -20,8 +20,22 @@ pipeline {
         }
 
         stage('Test') {
-            steps {
-                bat 'mvn test'
+            parallel {
+                stage('Test in Chrome') {
+                    steps {
+                        script {
+                            bat 'mvn test -Dbrowser=chrome'
+                        }
+                    }
+                }
+                stage('Test in Firefox') {
+                    steps {
+                        script {
+                            bat 'mvn test -Dbrowser=firefox'
+                        }
+                    }
+                }
+
             }
         }
 
@@ -30,7 +44,6 @@ pipeline {
                 cucumber buildStatus: 'NULL',
                          fileIncludePattern: '**/cucumber*.json',
                          jsonReportDirectory: 'target'
-
             }
         }
     }
