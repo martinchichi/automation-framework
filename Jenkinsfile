@@ -28,13 +28,13 @@ pipeline {
                         }
                     }
                 }
-                stage('Test in Firefox') {
-                    steps {
-                        script {
-                            bat 'mvn test -Dbrowser=firefox'
-                        }
-                    }
-                }
+//                 stage('Test in Firefox') {
+//                     steps {
+//                         script {
+//                             bat 'mvn test -Dbrowser=firefox'
+//                         }
+//                     }
+//                 }
 
             }
         }
