@@ -10,7 +10,7 @@ public class Login_PO extends BasePageObject {
     private @FindBy(id = "text")
     WebElement usernameTextFied;
 
-    private @FindBy(id = "password")
+    private @FindBy(id = "password555")
     WebElement passwordTextFied;
 
     private @FindBy(id = "login-button")
